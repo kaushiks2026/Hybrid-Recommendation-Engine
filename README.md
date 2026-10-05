@@ -73,7 +73,7 @@ HMR/
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/HMR.git
+git clone https://github.com/kaushiks2026/HMR.git
 cd HMR
 
 # Create virtual environment (recommended)
