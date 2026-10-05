@@ -1,0 +1,35 @@
+================================================================================
+FAILURE ANALYSIS
+================================================================================
+
+[PATTERN 1]: Complete Misses (NDCG@10 = 0)
+   5922 users (98.0% of test users)
+   Of these, 19.9% are cold-start users
+   Average training interactions: 133.0
+
+[PATTERN 2]: Items Never Recommended
+   554 test items never appear in any user's top-20
+   Of these, 8 have <5 training ratings (niche items)
+     -> 'Dracula: Dead and Loving It (1995)' (only 133 training ratings)
+     -> 'BASEketball (1998)' (only 144 training ratings)
+     -> 'Full Tilt Boogie (1997)' (only 4 training ratings)
+     -> 'Four Rooms (1995)' (only 119 training ratings)
+     -> 'Ace Ventura: When Nature Calls (1995)' (only 311 training ratings)
+
+[PATTERN 3]: Popularity Bias
+   On average, 27.8% of top-10 recs are from the 100 most popular items
+   [INFO] Moderate popularity spread
+
+[PATTERN 4]: Genre Monotonicity
+   633 users receive recommendations spanning <=2 genres
+     -> User 28: only genres {'War', 'Drama'}
+     -> User 31: only genres {'Comedy', 'Drama'}
+     -> User 32: only genres {'Thriller', 'Drama'}
+
+📌 Pattern 5: Contradictory Taste Users
+   Users who rate very diverse genres highly confuse the content-based model,
+   which averages their taste vector into a blurred, unspecific profile.
+   Users rating ≥10 genres highly: 4399
+   Their avg NDCG@10: 0.0102 vs overall: 0.0103
+
+================================================================================
